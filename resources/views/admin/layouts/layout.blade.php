@@ -28,6 +28,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
+<<<<<<< HEAD
         <a href="../../index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
@@ -140,6 +141,13 @@
         </a>
       </li>
     </ul>
+=======
+        <a href="{{route('auto')}}" class="nav-link">Войти</a>
+      </li>
+      
+
+    
+>>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
   </nav>
   <!-- /.navbar -->
 
@@ -189,6 +197,7 @@
               </p>
             </a>
           </li>
+<<<<<<< HEAD
           {{-- <li class="nav-item">
             <a href="{{route('calendar.index')}}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
@@ -207,6 +216,9 @@
               </p>
             </a>
           </li> --}}
+=======
+          
+>>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

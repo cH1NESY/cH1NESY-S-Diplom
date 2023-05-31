@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventsTable extends Migration
+class CreateMeetModelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('meet_models', function (Blueprint $table) {
             $table->id();
+            $table->dateTime('dateTime');
             $table->string('title');
-<<<<<<< HEAD
-            $table->date('start');
-            $table->date('end');
-=======
-            $table->dateTime('start');
->>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
-            $table->timestamps();
+            $table->integer('people');
         });
     }
 
@@ -33,6 +28,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('meet_models');
     }
 }

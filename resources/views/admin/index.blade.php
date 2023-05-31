@@ -1,9 +1,33 @@
 @extends('admin.layouts.layout')
 
 @section('content')
+<<<<<<< HEAD
 
 
     <div class="response"></div>
+=======
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
+@foreach ($events as $event)
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">{{$event->title}}</h4>
+    
+    <p class="card-text">
+      {{$event->dateTime}}
+    </p>
+    <p class="card-text">
+      {{$event->people}}
+    </p>
+    <a href="{{route('delete-event', ['id' => $event->id])}}" class="card-link">Удалить</a>
+    <a href="{{route('edit-event', $event->id)}}" class="card-link">Редактировать</a>
+  </div>
+</div> 
+    
+@endforeach
+
+
+    {{-- <div class="response"></div>
+>>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
     <div id='calendar'></div>  
 
 <section class="content">
@@ -116,7 +140,11 @@ function displayMessage(message) {
 $(".response").html("<div class='success'>"+message+"</div>");
 setInterval(function() { $(".success").fadeOut(); }, 1000);
 }
+<<<<<<< HEAD
 </script>
+=======
+</script> --}}
+>>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
 
 @endsection 
 {{-- @extends('adminlte::page')
