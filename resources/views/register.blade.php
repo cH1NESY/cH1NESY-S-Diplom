@@ -26,7 +26,7 @@
       
     </nav>
 </div>
-  <form action="{{route("reg")}} " method="POST">
+  <form action="{{route("reg")}} " method="POST" style="max-width: 500px; margin:0 auto">
 <main class="form-signin w-100 m-auto">
   
     @csrf

@@ -10,6 +10,38 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     
 </head>
+{{-- <body class="text-center">
+    
+  <main class="form-signin">
+    <form style="max-width: 500px; margin:0 auto" class="">
+      <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+  
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+  
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
+    </form>
+  </main>
+  
+  
+      
+    
+  
+  </body> --}}
+
 <body class=" bg-dark text-white text-center">
     <div class="wrapper">
         <!-- Navbar -->
@@ -27,7 +59,7 @@
           
         </nav>
     </div>
-    <form method="POST" action="{{route('aut')}}" >
+    <form method="POST" action="{{route('aut')}}" style="max-width: 500px; margin:0 auto">
 <main class="form-signin w-100 m-auto">
   
     @csrf
@@ -45,15 +77,15 @@
       <input type="password" class="form-control text-dark" style="width:450px "  id="password" name="password" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
+    <div class="form-floating text-dark"  >
+      <input type="password" class="form-control text-dark" style="width:450px "  id="password" name="password" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
 </div>
     @error('password')
     <p class="text-red-500">{{$message}}</p>
     @enderror
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
+    
     <a href="{{route('register')}}" class="card-link">Зарегистрироваться</a><br>
     <button class="w-15 btn btn-lg btn-primary"  type="submit">Sign in</button>
     

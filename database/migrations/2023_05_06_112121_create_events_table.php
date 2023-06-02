@@ -16,13 +16,7 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-<<<<<<< HEAD
-            $table->date('start');
-            $table->date('end');
-=======
-            $table->dateTime('start');
->>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
-            $table->timestamps();
+
         });
     }
 

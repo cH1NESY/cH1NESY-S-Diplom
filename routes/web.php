@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
-<<<<<<< HEAD
-=======
+
+
 use App\Http\Controllers\CalendarController;
->>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
+
 use Illuminate\Support\Facades\Route;
 
 use function Ramsey\Uuid\v1;
@@ -20,31 +20,13 @@ use function Ramsey\Uuid\v1;
 |
 */
 
-<<<<<<< HEAD
+
 Route::get('/', function () {
     return view('admin.index');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
-    Route::get('/', 'MainController@index') ->name ('admin.index');
-    Route::get('/categories', [CategoryController::class, 'index']);
 
-    // Route::get('/fullcalendar','CalendarController@index')->name('calendar.index');
-    // Route::post('/fullcalendar/create','CalendarController@create');
-    // Route::post('/fullcalendar/update','CalendarController@update');
-    // Route::post('/fullcalendar/delete','CalendarController@destroy');
-    //Route::get('/category', 'CategoryController@index')->name('categoryr');
 
-});
-
-Route::get('/fullcalendar','CalendarController@index')->name('calendar.index');
-Route::post('/fullcalendar/create','CalendarController@create');
-Route::post('/fullcalendar','CalendarController@index');
-Route::post('/fullcalendar/update','CalendarController@update');
-Route::post('/fullcalendar/delete','CalendarController@destroy');
-// Route::get('/category', 'CategoryController@index')->name('category');
-
-=======
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
@@ -54,6 +36,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
 Route::get('/fullcalendar/delete/{id}', 'CalendarController@delete')->name('delete-event');
 Route::get('/fullcalendar/edit/{id}', 'CalendarController@edit')->name('edit-event');
+Route::get('/meet', 'CalendarController@showMeet')->name('meet');
+Route::post('/meet', 'CalendarController@meet')->name('add-meet');
 
 Route::post('/fullcalendar/edit/{id}', 'CalendarController@editSubmit')->name('edit-event-submit');
 Route::get('/fullcalendar','CalendarController@index')->name('calendar.index');
@@ -65,5 +49,8 @@ Route::get('/autorizate','AutorizateController@autorizateShow')->name('auto');
 
 Route::post('/register','AutorizateController@reg')->name('reg');
 Route::get('/register','AutorizateController@registerShow')->name('register');
->>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
+
+Route::get('/show/{id}','AutorizateController@showPeople')->name('show');
+Route::get('/logout','AutorizateController@logout')->name('logout');
+
 ?>

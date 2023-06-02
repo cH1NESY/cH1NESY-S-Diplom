@@ -8,20 +8,20 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Event;
-use App\Category;
-<<<<<<< HEAD
-=======
 use App\MeetModel;
+use App\Category;
 
->>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
+use App\meet_people;
+
+
+
 
 
 class CalendarController extends Controller
 {
     public function index(Request $request)
     {
-<<<<<<< HEAD
+
         $method = $request->method();
 
     if ($request->isMethod('post')) {
@@ -37,7 +37,7 @@ class CalendarController extends Controller
          $data = Event::whereDate('start', '>=', $start)->whereDate('end',   '<=', $end)->get(['id','title','start', 'end']);
          return Response::json($data);
         }
-=======
+
         
         // $data = Event::all();
         // dd($data);
@@ -57,12 +57,12 @@ class CalendarController extends Controller
         //  $data = Event::whereDate('start', '>=', $start)->whereDate('end',   '<=', $end)->get(['id','title','start', 'end']);
          //return Response::json($datetime);
         //}
->>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
+
         return view('admin.calendar.index');
     }
    
   
-<<<<<<< HEAD
+
     public function create(Request $request)
     {  
         $insertArr = [ 'title' => $request->title,
@@ -99,7 +99,7 @@ class CalendarController extends Controller
         Category::create($request->all());
         $request->session()->flash('success');
         return redirect()-> route('admin.index');
-=======
+
     // public function create(Request $request)
     // {  
     //     $insertArr = [ 'title' => $request->title,
@@ -127,7 +127,7 @@ class CalendarController extends Controller
   
     //     return Response::json($event);
     // }    
-
+    }
     public function delete($id){
         $model = MeetModel::find($id);
         $model->delete();
@@ -135,7 +135,7 @@ class CalendarController extends Controller
         // dd($model);
     }
     
-    
+
     public function edit($id)
 {
     $review = MeetModel::find($id);
@@ -174,7 +174,32 @@ class CalendarController extends Controller
         $review->save();
 
         return redirect()->route('admin.index', $id);
->>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
+
      }
+
+     public function showMeet(Request $request){
+        
+        return view('people');
+    }
+    
+    public function meet(Request $request){
+        $valid = $request->validate([
+            'fio' => 'required|min:4|max:100',
+            'number' => 'required|min:4|max:100',
+            
+        ]);
+        // dd($request);
+        $review = new meet_people();
+        $review->fio = $request->input('fio');
+        $review->number = $request->input('number');
+        $review->meet_model_id = $request->input('meet_id');
+
+        $review->save();
+
+        
+        
+        
+        return redirect(route("admin.index"));
+    }
 }
 

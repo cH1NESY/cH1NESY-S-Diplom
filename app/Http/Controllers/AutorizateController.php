@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\UserModel;
 use Illuminate\Http\Request;
 use App\User;
+use App\meet_people;
+use Illuminate\Support\Facades\Auth;
 
 class AutorizateController extends Controller
 {
@@ -19,13 +21,14 @@ class AutorizateController extends Controller
     }
 
     public function autorizate(Request $request){
-        $data = $request->validate([ 
+         $request->validate([ 
         
             "email"=>["required", "email", "string"],
             "password"=>["required"]
         ]);
-        if(auth("web")->attempt($data)){
-            return redirect(route("aut"));
+        if(Auth::attempt($request->only('email', 'password'))){
+            return redirect(route("admin.index"));
+            
         }
         
     }
@@ -47,5 +50,15 @@ class AutorizateController extends Controller
         }
         return redirect(route("auto"));
     }
+     
+    public function showPeople($id){
+        $meet_peoples = meet_people::all()->where('meet_model_id', '=', $id);
+        
+        return view('show', ['meet_peoples'=>$meet_peoples]);
+    }
 
+    public function logout(){
+        Auth::logout();
+        return redirect(route('admin.index'));
+    }
 }

@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-<<<<<<< HEAD
+
 
 use App\Http\Controllers\Controller;
 
-=======
+
 use Illuminate\Http\Response;
-use App\Http\Controllers\Controller;
+
 use App\MeetModel;
->>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -18,9 +18,9 @@ class MainController extends Controller
 {
     
     public function index(){
-<<<<<<< HEAD
-        return view('admin.index') ;
-=======
+
+        
+
         // dd (MeetModel::all());
         // if(request()->ajax()) 
         // {
@@ -35,9 +35,10 @@ class MainController extends Controller
         // }
         $events = MeetModel::where('dateTime','>=', 'now()')->get();
         
-        return view('admin.index', ['events'=>$events]) ;
+        return view('admin.index', ['events'=>$events]);
         
->>>>>>> 7287268 (https://github.com/cH1NESY/cH1NESY-S-Diplom.git)
+
     }
-    
+
+   
 }

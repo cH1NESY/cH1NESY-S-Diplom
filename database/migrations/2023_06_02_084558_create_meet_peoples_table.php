@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserModelsTable extends Migration
+class CreateMeetPeoplesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateUserModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_models', function (Blueprint $table) {
+        Schema::create('meet_peoples', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('password')->nullable();
+            $table->string('fio');
+            $table->string('number');
+            $table->foreign("meet_model_id")->references('id')->on('meet_models');
         });
-        
     }
 
     /**
@@ -29,6 +28,6 @@ class CreateUserModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_models');
+        Schema::dropIfExists('meet_peoples');
     }
 }
